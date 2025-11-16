@@ -2,53 +2,323 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivid Dreams</title>
+    <link rel="stylesheet" href="/">
+    <script src="/styles.css" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="fav.png" type="image/x-icon">
+
+    <!-- Font Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <meta charset="UTF-8" />
-    <title>Vivid Dreams</title>
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: "Urbanist", sans-serif;
-            background: url("bg-vd.jpg") center/cover no-repeat fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
-
-        .hero {
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: 2rem;
-            margin-top: 1rem;
-            letter-spacing: 0.2em;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="hero">
-        <h1>Vivid Dreams</h1>
-        <p>coming soon</p>
-    </div>
+    <header>
+        <a href="https://www.vividdreams.space/">
+            <img src="vd.svg" alt="Vivid Dreams Games Logo">
+        </a>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="primary-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="hamburger-icon" aria-hidden="true">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </span>
+        </button>
+        <div class="nav-links" id="primary-nav">
+            <div class="nav-links-inner">
+                <a href="https://vividdreams.space/games/">Games</a>
+                <a href="https://vividdreams.space/concepts/">Concepts</a>
+                <a href="https://vividdreams.space/about/">About</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="feature-carousel" aria-label="Featured stories">
+            <div class="carousel-main">
+                <article class="carousel-slide is-active" data-slide="block-avoid"
+                    data-bg="games/block-avoid/screenshots/default.png" id="slide-block-avoid">
+                    <img class="slide-media" src="carousel/carousel-bg-1.jpg" alt="" aria-hidden="true">
+                    <div class="slide-text">
+                        <!-- <p class="slide-tag">Out now</p> -->
+                        <img class="slide-heading"
+                            src="carousel/carousel-logo-1.svg"
+                            alt="Block Avoid" loading="lazy" decoding="async">
+                        <p class="slide-desc">Avoid the blocks - trickier than it sounds.</p>
+                        <a class="cta-button" href="https://vividdreams.space/games/block-avoid/" target="_blank" rel="noopener">Play Now</a>
+                    </div>
+                </article>
+                <article class="carousel-slide" data-slide="introducing" data-bg="bg-vd.jpg" id="slide-introducing">
+                    <img class="slide-media" src="carousel/carousel-bg-2.jpg" alt="" aria-hidden="true" loading="lazy">
+                    <div class="slide-text">
+                        <!-- <p class="slide-tag">Studio update</p> -->
+                        <img class="slide-heading"
+                            src="carousel/carousel-logo-2.svg"
+                            alt="Introducing Vivid Dreams" loading="lazy" decoding="async">
+                        <p class="slide-desc">A brand new company.</p>
+                        <a class="cta-button" href="https://vividdreams.space/about/" target="_blank" rel="noopener">About Us</a>
+                    </div>
+                </article>
+                <article class="carousel-slide" data-slide="brand" data-bg="bg-vd.jpg" id="slide-brand">
+                    <img class="slide-media" src="carousel/carousel-bg-3.jpg" alt="" aria-hidden="true" loading="lazy">
+                    <div class="slide-text">
+                        <!-- <p class="slide-tag">Brand guide</p> -->
+                        <img class="slide-heading"
+                            src="carousel/carousel-logo-3.svg"
+                            alt="The Brand" loading="lazy" decoding="async">
+                        <p class="slide-desc">Download the latest colors, typography, and motion references that keep every touchpoint unmistakably Vivid Dreams.</p>
+                        <a class="cta-button" href="https://vividdreams.space/brand-guide/" target="_blank" rel="noopener">View Brand Guide</a>
+                    </div>
+                </article>
+            </div>
+            <div class="carousel-thumbs" role="tablist" aria-label="Select feature">
+                <button class="carousel-thumb is-active" type="button" data-target="block-avoid" aria-controls="slide-block-avoid" aria-selected="true">
+                    <img class="thumb-art" src="carousel/carousel-th-1.jpg" alt="" aria-hidden="true" loading="lazy">
+                    <span class="thumb-text">
+                        <strong>Block Avoid</strong>
+                        <small>out now</small>
+                    </span>
+                </button>
+                <button class="carousel-thumb" type="button" data-target="introducing" aria-controls="slide-introducing" aria-selected="false">
+                    <img class="thumb-art" src="carousel/carousel-th-2.jpg" alt="" aria-hidden="true" loading="lazy">
+                    <span class="thumb-text">
+                        <strong>Introducing Vivid Dreams</strong>
+                        <small>A brand new company</small>
+                    </span>
+                </button>
+                <button class="carousel-thumb" type="button" data-target="brand" aria-controls="slide-brand" aria-selected="false">
+                    <img class="thumb-art" src="carousel/carousel-th-3.jpg" alt="" aria-hidden="true" loading="lazy">
+                    <span class="thumb-text">
+                        <strong>The Brand</strong>
+                        <small>Brand assets &amp; guide</small>
+                    </span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+        <div class="spacer-footer"></div>
+
+
+        <footer>
+            <iframe id="footer-iframe" src="https://vividdreams.space/footer.html" onload="resizeIframe(this)"
+                width="100%" frameborder="0" scrolling="no" class="footer-frame"></iframe>
+        </footer>
 </body>
+<script>
+    (function () {
+        const iframeId = 'footer-iframe';
+        const fallbackHeight = 620;
+
+        window.resizeIframe = function (iframe) {
+            if (!iframe) return;
+            iframe.style.height = `${fallbackHeight}px`;
+        };
+
+        window.addEventListener('message', (event) => {
+            const data = event.data;
+            if (!data || data.type !== 'footerHeight') return;
+
+            const iframe = document.getElementById(iframeId);
+            if (!iframe || event.source !== iframe.contentWindow) return;
+
+            const height = Number(data.height);
+            if (!Number.isFinite(height) || height <= 0) return;
+
+            iframe.style.height = `${height}px`;
+        });
+    })();
+
+    (function () {
+        const body = document.body;
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const nav = document.getElementById('primary-nav');
+        const header = document.querySelector('header');
+        const logo = header ? header.querySelector('img') : null;
+
+        if (!toggle || !nav || !header || !logo) return;
+
+        const isMobileEnabled = () => body.classList.contains('mobile-nav-enabled');
+
+        const setMenuState = (shouldOpen) => {
+            const allowOpen = Boolean(shouldOpen) && isMobileEnabled();
+            nav.classList.toggle('is-open', allowOpen);
+            toggle.setAttribute('aria-expanded', String(allowOpen));
+            body.classList.toggle('mobile-nav-open', allowOpen);
+        };
+
+        const closeMenu = () => setMenuState(false);
+
+        toggle.addEventListener('click', () => {
+            if (!isMobileEnabled()) return;
+            const isOpen = nav.classList.contains('is-open');
+            setMenuState(!isOpen);
+        });
+
+        nav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        const applyMobileEnabled = (enabled) => {
+            body.classList.toggle('mobile-nav-enabled', enabled);
+            if (!enabled) {
+                closeMenu();
+            } else if (!nav.classList.contains('is-open')) {
+                toggle.setAttribute('aria-expanded', 'false');
+                body.classList.remove('mobile-nav-open');
+            }
+        };
+
+        let measuring = false;
+
+        const detectOverflow = () => {
+            if (measuring) return;
+            measuring = true;
+
+            const wasMobile = body.classList.contains('mobile-nav-enabled');
+            const wasOpen = nav.classList.contains('is-open');
+
+            if (wasMobile) {
+                body.classList.remove('mobile-nav-enabled');
+                nav.classList.remove('is-open');
+                body.classList.remove('mobile-nav-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
+            const headerRect = header.getBoundingClientRect();
+            const headerStyles = getComputedStyle(header);
+            const paddingLeft = parseFloat(headerStyles.paddingLeft || '0');
+            const paddingRight = parseFloat(headerStyles.paddingRight || '0');
+            const headerWidth = headerRect.width;
+            const logoWidth = logo.getBoundingClientRect().width;
+            const navWidth = nav.scrollWidth;
+            const widthNeeded = navWidth + logoWidth + paddingLeft + paddingRight;
+
+            const navRect = nav.getBoundingClientRect();
+            const widthTolerance = 12;
+            const heightTolerance = 6;
+            const overflowTolerance = 6;
+
+            const widthExceeded = widthNeeded - headerWidth > widthTolerance;
+            const navWrapped = navRect.bottom - headerRect.bottom > heightTolerance;
+            const hasXOverflow = (document.documentElement.scrollWidth - document.documentElement.clientWidth) > overflowTolerance;
+
+            const needsMobile = widthExceeded || navWrapped || hasXOverflow;
+
+            applyMobileEnabled(needsMobile);
+
+            if (needsMobile && wasOpen) {
+                setMenuState(true);
+            }
+
+            measuring = false;
+        };
+
+        const debouncedDetect = (() => {
+            let timer;
+            return () => {
+                clearTimeout(timer);
+                timer = setTimeout(detectOverflow, 120);
+            };
+        })();
+
+        detectOverflow();
+        window.addEventListener('resize', debouncedDetect);
+        window.addEventListener('orientationchange', detectOverflow);
+        window.addEventListener('load', detectOverflow);
+
+        if (typeof ResizeObserver !== 'undefined') {
+            const observer = new ResizeObserver(debouncedDetect);
+            observer.observe(header);
+            observer.observe(nav);
+        }
+    })();
+
+    (function () {
+        const carousel = document.querySelector('.feature-carousel');
+        if (!carousel) return;
+
+        const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+        const thumbs = Array.from(carousel.querySelectorAll('.carousel-thumb'));
+        if (!slides.length || slides.length !== thumbs.length) return;
+
+        let activeIndex = 0;
+        let autoTimer;
+        const rotationDelay = 6500;
+
+        const applyBackgroundFromSlide = (slide) => {
+            if (!slide) return;
+            const bg = slide.dataset.bg;
+            if (bg) {
+                carousel.style.setProperty('--carousel-bg', `url("${bg}")`);
+            }
+        };
+
+        const setActive = (targetId) => {
+            slides.forEach((slide, index) => {
+                const isMatch = slide.dataset.slide === targetId;
+                slide.classList.toggle('is-active', isMatch);
+                if (isMatch) {
+                    activeIndex = index;
+                    applyBackgroundFromSlide(slide);
+                }
+            });
+
+            thumbs.forEach((thumb) => {
+                const isMatch = thumb.dataset.target === targetId;
+                thumb.classList.toggle('is-active', isMatch);
+                thumb.setAttribute('aria-selected', String(isMatch));
+            });
+        };
+
+        const nextSlideId = () => {
+            const nextIndex = (activeIndex + 1) % slides.length;
+            return slides[nextIndex].dataset.slide;
+        };
+
+        const stopAuto = () => {
+            if (autoTimer) {
+                clearInterval(autoTimer);
+                autoTimer = undefined;
+            }
+        };
+
+        const startAuto = () => {
+            stopAuto();
+            autoTimer = setInterval(() => {
+                setActive(nextSlideId());
+            }, rotationDelay);
+        };
+
+        thumbs.forEach((thumb) => {
+            thumb.addEventListener('click', () => {
+                setActive(thumb.dataset.target);
+                startAuto();
+            });
+        });
+
+        ['mouseenter', 'focusin'].forEach((eventName) => {
+            carousel.addEventListener(eventName, stopAuto);
+        });
+
+        ['mouseleave', 'focusout'].forEach((eventName) => {
+            carousel.addEventListener(eventName, () => {
+                if (!carousel.matches(':hover')) {
+                    startAuto();
+                }
+            });
+        });
+
+        applyBackgroundFromSlide(slides[activeIndex]);
+        startAuto();
+    })();
+</script>
 
 </html>

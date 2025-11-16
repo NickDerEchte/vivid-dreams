@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onsite Footer v1</title>
+    <link rel="stylesheet" href="footer.css">
+
+    <!-- Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+
+    <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <p class="footer-title">Main</p>
+        <a href="/">Home</a>
+        <a href="/games">Games</a>
+        <a href="/concepts">Concepts</a>
+        <a href="/about">About</a>
+        <a href="/about#press-kit">Press Kit</a>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-title">Contact</p>
+        <a href="#">Discord</a>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-title">Games</p>
+        <a href="/games/block-avoid">Block Avoid</a>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-title">Concepts</p>
+        <span>coming soon</span>
+      </div>
+    </div>
+
+    <p class="footer-copy">&copy; 2025 Vivid Dreams. All rights reserved.</p>
+  </footer>
+
+
+
+    <img src="footer.svg" alt="Footer Image"class="footer-svg">
+    <script>
+        (function () {
+            if (typeof window === 'undefined') return;
+
+            const postHeight = () => {
+                const height = document.body ? document.body.scrollHeight : 0;
+                if (!height) return;
+                window.parent?.postMessage({ type: 'footerHeight', height }, '*');
+            };
+
+            const schedulePost = () => {
+                postHeight();
+                requestAnimationFrame(() => postHeight());
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', schedulePost, { once: true });
+            } else {
+                schedulePost();
+            }
+
+            window.addEventListener('load', schedulePost);
+            window.addEventListener('resize', postHeight);
+
+            if (typeof ResizeObserver !== 'undefined') {
+                const observer = new ResizeObserver(postHeight);
+                observer.observe(document.body);
+            }
+        })();
+    </script>
+</body>
+</html>
