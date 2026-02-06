@@ -1,7 +1,10 @@
+* {
+  background-color: #0d0101;
+}
 
 body {
   margin: 0;
-  background: transparent;
+  background: #0d0101;
   color: #fff;
   font-family: 'Urbanist', sans-serif;
 }

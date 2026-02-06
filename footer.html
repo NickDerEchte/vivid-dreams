@@ -19,21 +19,21 @@
     <div class="footer-grid">
       <div class="footer-column">
         <p class="footer-title">Main</p>
-        <a href="/">Home</a>
-        <a href="/games">Games</a>
-        <a href="/concepts">Concepts</a>
-        <a href="/about">About</a>
-        <a href="/about#press-kit">Press Kit</a>
+        <a href="/" target="_top">Home</a>
+        <a href="/games" target="_top">Games</a>
+        <a href="/concepts" target="_top">Concepts</a>
+        <a href="/about" target="_top">About</a>
+        <a href="/about#press-kit" target="_top">Press Kit</a>
       </div>
 
       <div class="footer-column">
         <p class="footer-title">Contact</p>
-        <a href="#">Discord</a>
+        <a href="https://discord.gg/XqJtjNj7" target="_top">Discord</a>
       </div>
 
       <div class="footer-column">
         <p class="footer-title">Games</p>
-        <a href="/games/block-avoid">Block Avoid</a>
+        <a href="/games/block-avoid-demo">Block Avoid</a>
       </div>
 
       <div class="footer-column">
@@ -76,6 +76,33 @@
                 const observer = new ResizeObserver(postHeight);
                 observer.observe(document.body);
             }
+
+            // If this footer is embedded in an iframe, ensure footer links
+            // navigate the top-level window (so clicks change the whole site).
+            document.addEventListener('click', function (ev) {
+              const anchor = ev.target.closest('a');
+              if (!anchor) return;
+
+              // Respect explicit targets that intend to open a new tab/window
+              const target = anchor.getAttribute('target');
+              if (target && target.toLowerCase() === '_blank') return;
+
+              const href = anchor.getAttribute('href');
+              if (!href || href.startsWith('javascript:') || href.startsWith('#')) return;
+
+              // If inside an iframe, navigate the top browsing context instead
+              if (window.top && window.top !== window.self) {
+                ev.preventDefault();
+                try {
+                  // Resolve relative URLs against this document
+                  const url = new URL(href, window.location.href).href;
+                  window.top.location.href = url;
+                } catch (err) {
+                  // Fallback if URL resolution fails
+                  window.top.location.href = href;
+                }
+              }
+            }, false);
         })();
     </script>
 </body>
